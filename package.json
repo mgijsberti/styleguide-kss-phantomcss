@@ -1,0 +1,31 @@
+{
+  "name": "styleguide-poc",
+  "version": "1.0.0",
+  "description": "Poc Living styleguide with kss and phantomcss",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgijsberti/styleguide-kss-phantomcss.git"
+  },
+  "keywords": [
+    "styleguide",
+    "css",
+    "phantomcss"
+  ],
+  "author": "Martijn Gijsberti Hodenpijl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgijsberti/styleguide-kss-phantomcss/issues"
+  },
+  "homepage": "https://github.com/mgijsberti/styleguide-kss-phantomcss"
+}
