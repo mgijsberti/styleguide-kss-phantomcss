@@ -1,1 +1,33 @@
 This project is a POC for creating PhantomCSS test scripts with kss from a Living Stye guide
+
+Installation
+===========
+
+In folder test
+bower install phantomcss
+
+In root
+npm install resemblejs (phantomcss assumes that resemblejs is installed with npm )
+
+
+Setup baseline
+==============
+
+casperjs test test/testsuite.js
+
+In testsuite.js the url is http://localhost:63342/styleguide-poc/styleguide/section-1.html.
+The portnumber is created by Intellij (starting the section-1.html from Intellij). So you need to adapt the url.
+
+Baseline is generated in test/screenshots
+
+Change
+======
+
+Make a change in the size of font-family in buttons.less
+./build.sh (generates the stylesuite)
+casperjs test test/testsuite.js
+
+Now you can see the failed screenshots in the /failures folder and in test/screenshots
+
+
+
