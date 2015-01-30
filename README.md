@@ -1,34 +1,36 @@
-Living Styleguide Example with automatic PhantomCss comparison of screenshots
-=============================================================================
+# Living Styleguide Example with automatic PhantomCss comparison of screenshots
+
 
 This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss validation.
 The PhantomCss validation scripts are generated from the Living Styleguide. With this setup you can automatically
 validate any unexpected side-effects of changes in your css classes.Library used are kss-node and phantomcss.
 
-<h2>Installation</h2>
+## Installation
 
-<p>Install the following npm modules with option --saved-dev :</p>
-<ul>
-  <li>grunt</li>
-  <li>grunt-concurrent</li>
-  <li>grunt-contrib-connect</li>
-  <li>grunt-contrib-less</li>
-  <li>grunt-contrib-sass</li>
-  <li>grunt-contrib-watch</li>
-  <li>grunt-kss</li>
-  <li>load-grunt-tasks</li>
-  <li>grunt-styleguide</li>
-</ul>
-<p>Or run npm install (which install the dependencies from the package.json).</p>
-<p>Run in the folder test/styleguide : </p>
-<p>npm install bower</p>
-<p>bower install phantomcss</p>
-<p>bower install resemblejs</p>
 
-Start living styleguide
-=======================
+Install the following npm modules with option --saved-dev :
+  grunt
+  grunt-concurrent
+  grunt-contrib-connect
+  grunt-contrib-less
+  grunt-contrib-sass
+  grunt-contrib-watch
+  grunt-kss
+  load-grunt-tasks
+  grunt-styleguide
 
+Or run npm install (which install the dependencies from the package.json)
+Run in the folder test/styleguide :
+ npm install bower
+ bower install phantomcss
+ bower install resemblejs
+
+## Start living styleguide
+
+```shell
 grunt styleguide
+```
+
 
 Starts the styleguide on http://localhost:1419. The source files and index.html of the living styleguide are watched.
 The styleguide shows the button with different styles. If you change the less files in app/src or the index.html in
