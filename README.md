@@ -46,7 +46,7 @@ Open a new terminal for the comparison of the changes in css. PhantomCss makes s
 the style guide, based on the markup of the less files.
 
 
-## Testing living styleguide
+## Test the living style guide
 
 The first step is to make a baseline. PhantomCss will generate screenshots in the test/report/screenshots folder. These
 screenshots will serve as a baseline.
