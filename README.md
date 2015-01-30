@@ -9,21 +9,21 @@ validate any unexpected side-effects of changes in your css classes.Library used
 
 
 Install the following npm modules with option --saved-dev :
-  grunt
-  grunt-concurrent
-  grunt-contrib-connect
-  grunt-contrib-less
-  grunt-contrib-sass
-  grunt-contrib-watch
-  grunt-kss
-  load-grunt-tasks
-  grunt-styleguide
+  * grunt
+  * grunt-concurrent
+  * grunt-contrib-connect
+  * grunt-contrib-less
+  * grunt-contrib-sass
+  * grunt-contrib-watch
+  * grunt-kss
+  * load-grunt-tasks
+  * grunt-styleguide
 
 Or run npm install (which install the dependencies from the package.json)
 Run in the folder test/styleguide :
- npm install bower
- bower install phantomcss
- bower install resemblejs
+ * npm install bower
+ * bower install phantomcss
+ * bower install resemblejs
 
 ## Start living styleguide
 
