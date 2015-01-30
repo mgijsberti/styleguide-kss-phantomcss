@@ -80,9 +80,12 @@ grunt clean:init
 ```
 This command will reinitialize the validation, all screenshots are removed.
 
-##Rebase
+##Todo
 
-To do
+* rebase
+* styleguide from http://kss-node.github.io/kss-node/
+
+
 
 
 
