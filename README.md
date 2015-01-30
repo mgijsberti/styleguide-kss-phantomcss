@@ -38,12 +38,12 @@ In test/styleguide
 grunt styleguide
 ```
 
-Starts the styleguide on http://localhost:1419. The source files and index.html of the living styleguide are watched.
-The styleguide shows the button with different styles. If you change the less files in app/src or the index.html in
-kss/template, the styleguide is reloaded.
+Starts the style guide on http://localhost:1419. The source files and index.html of the living style guide are watched.
+The style guide shows the button with different styles. If you change the less files in app/src or the index.html in
+kss/template, the style guide is reloaded.
 
-Open a new terminal for the comparison of the changes in css. Phantomcss makes screenshots for each css element of
-the styleguide, which are described in the markup of the less files.
+Open a new terminal for the comparison of the changes in css. PhantomCss makes screenshots for each css element of
+the style guide, based on the markup of the less files.
 
 
 ## Testing living styleguide
