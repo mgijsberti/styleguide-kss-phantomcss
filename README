@@ -1,7 +1,9 @@
-<h1>Living Styleguide Example with automatic PhantomCss comparison of screenshots</h1>
-<p>This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss validation. The PhantomCss validation scripts are generated from the Living Styleguide.</p>
-<p>With this setup you can automatically validate any unexpected side-effects of changes in your css classes.</p>
-<p>Library used are kss-node and phantomcss<p>
+Living Styleguide Example with automatic PhantomCss comparison of screenshots
+=============================================================================
+
+This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss validation.
+The PhantomCss validation scripts are generated from the Living Styleguide. With this setup you can automatically
+validate any unexpected side-effects of changes in your css classes.Library used are kss-node and phantomcss.
 
 <h2>Installation</h2>
 
