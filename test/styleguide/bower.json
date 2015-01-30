@@ -1,0 +1,8 @@
+{
+    "name": "NS_Webdesign_v3",
+    "version": "0.0.1",
+    "dependencies": {
+        "phantomcss": "0.9.0"
+
+    }
+}

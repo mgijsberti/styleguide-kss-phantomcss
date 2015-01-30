@@ -1,0 +1,39 @@
+.kss-body {
+
+
+
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2P88OHDTAY0ICAgkI4uxjgUFKI7GsTH5m7GIaAQAPNlJRhZk+OUAAAAAElFTkSuQmCC');
+        background-repeat: repeat;
+
+}
+.kss-container {
+    padding-top: 50px;
+}
+.kss-wrapper {
+    position: relative;
+    z-index: 10;
+}
+.kss-main {
+    position: relative;
+}
+
+.kss-section { // borrows styles from ns's .container
+    margin-bottom: 20px;
+
+    background: $kss-background-color;
+}
+
+a.section-anchor { // anchor element, creates space above actual settings so that the setting begins under the navigation-bar
+    padding-bottom: 40px !important;
+    display: block;
+}
+
+.kss-icons {
+    font-size: 0;
+    .kss-icon {
+        width: 25%;
+        display: inline-block;
+        font-size: 16px;
+    }
+}
+

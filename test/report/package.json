@@ -1,0 +1,12 @@
+{
+  "name"         : "report",
+  "version"      : "0.0.1",
+  "description"  : "Build report",
+  "main"         : "genindex.js",
+  "author"       : "mhodenpijl",
+  "dependencies" : {
+    "mustache"    : "latest",
+    "events"    : "latest",
+     "karma"  : "latest"
+  }
+}

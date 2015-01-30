@@ -1,0 +1,15 @@
+{
+  "name": "styleguide-scraper",
+  "version": "0.0.1",
+  "description": "Styleguide scraper",
+  "main": "scraper.js",
+  "author": "mhodenpijl",
+  "dependencies": {
+    "express": "latest",
+    "request": "latest",
+    "cheerio": "latest"
+  },
+  "devDependencies": {
+    "jasmine": "^2.1.1"
+  }
+}

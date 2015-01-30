@@ -1,0 +1,158 @@
+%kss-typography {
+    font-size: $kss-font-size;
+    line-height: $kss-line-height;
+    font-family: $kss-font;
+    color: $kss-font-color;
+}
+%kss-p {
+    @extend %kss-typography;
+    margin-bottom: 1em;
+    &+p {
+        margin-bottom: 0;
+    }
+}
+
+.kss-homebutton {
+    display: inline-block;
+    background-size: 36px auto !important;
+    background-repeat: no-repeat !important;
+    background-position: 10px center !important;
+    color: $kss-ns-blue !important;
+    span {
+        display: inline-block;
+        padding-left: 45px;
+    }
+}
+@media all and (max-width: 799px) {
+    .kss-li .kss-homebutton {
+        background-image: none !important;
+        span {
+            padding-left: 0;
+        }
+    }
+}
+
+.menu-button {
+    .kss-homebutton {
+        span {
+            padding-left: 55px;
+        }
+    }
+    .menu {
+        display: inline-block;
+        float: right;
+        padding: 0 10px;
+    }
+}
+p.kss-p {
+    @extend %kss-p;
+}
+
+.kss-title {
+    margin: 0;
+    padding: .2em;
+    background-color: grey;
+    color: white;
+    border: solid 1px $kss-grey;
+    border-bottom: none;
+}
+
+.kss-depth-1 > h1.kss-title { font-size: 1.8em; background-color: $kss-grey-level-1 }
+.kss-depth-2 > h1.kss-title { font-size: 1.6em; background-color: $kss-grey-level-2 }
+.kss-depth-3 > h1.kss-title { font-size: 1.4em; background-color: $kss-grey-level-3 }
+.kss-depth-4 > h1.kss-title { font-size: 1.2em; background-color: $kss-grey-level-4 }
+.kss-depth-5 > h1.kss-title { font-size: 1.1em; background-color: $kss-grey-level-5 }
+.kss-depth-6 > h1.kss-title { font-size: 1.1em; background-color: $kss-grey-level-5 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.kss-site-header,
+.kss-box {
+    @extend %kss-typography;
+}
+%reset-a {
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    box-shadow: initial;
+    &:hover {
+        box-shadow: initial;
+    }
+}
+a.kss-a {
+    @extend %reset-a;
+}
+li.kss-li,
+ul.kss-ul {
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.kss-mod-list {
+    width:100%;
+}
+
+.kss-mod-name {
+    text-align:right;
+    width:25%;
+
+
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    .kss-mode-name-box {
+        margin: 0;
+        padding: 3px 5px;
+        font-size:0.75em;
+        font-family: Courier New, sans;
+        border: solid 1px grey;
+        border-top: 0;
+        display: inline-block;
+        float: right;
+        white-space: nowrap;
+    }
+}
+
+.kss-mod-example {
+
+
+    //display:block;
+    &>td {
+        //display:block;
+        padding-bottom:40px;
+    }
+}
+.kss-mod-desc-group {
+
+    margin-top: 5px;
+
+}
+.kss-mod-example + .kss-mod-desc-group {
+    border-top: solid 1px grey;
+}
+.kss-mod-example > td {
+    padding-top: 10px;
+}
+.kss-markup {
+    border: solid 1px grey;
+    background-color: #CCC;
+
+    padding: .5em;
+
+}

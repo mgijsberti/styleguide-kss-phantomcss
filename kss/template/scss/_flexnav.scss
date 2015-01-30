@@ -1,0 +1,316 @@
+/* Flexnav Base Styles */
+
+$flexnav-link-pad: .5em;
+
+
+$nav_text:      $kss-font-color;
+$top_level:     $kss-red-level-1;
+$second_level:  $kss-red-level-2;
+$third_level:   $kss-red-level-3;
+$fourth_level:  $kss-red-level-4;
+
+$touch-button-size:  $kss-line-height * $kss-font-size + $kss-font-size;
+.kss-site-header {
+    z-index: 15;
+    display: block;
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100%;
+    background-color: #000;
+}
+.flexnav {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    transition: none;
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+    max-height: 0;
+    padding: 0;
+    &.opacity {
+        opacity: 0;
+    }
+
+    &.flexnav-show {
+        max-height: 2000px;
+        opacity: 1;
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -ms-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+    }
+    &.one-page {
+        position: fixed;
+        top: $touch-button-size;
+        right: 5%;
+        max-width: 200px;
+    }
+
+    li {
+        font-size: 100%;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    li a {
+        position: relative;
+        display: block;
+        padding: $kss-font-size/2;
+        z-index: 2;
+        overflow: hidden;
+        color: $nav_text;
+        background: #52a68e;
+        border-bottom: 2px solid rgba(0,0,0,.15);
+        box-shadow: initial;
+        font-weight: normal;
+        &:hover {
+            background-color: #a2a2a2;
+        }
+    }
+
+    li ul {
+        width: 100%;
+        padding: 0;
+        li {
+            font-size: 100%;
+            position: relative;
+            overflow: hidden;
+            border-top: solid 1px #333;
+
+            &.kss-li-depth-3 {
+                font-size: 90%;
+                border-top: none;
+                a {
+                    padding: .3em .3em .3em .8em;
+                }
+            }
+            &.kss-li-depth-4 {
+                font-size: 90%;
+                border-top: dotted 1px grey;
+                a {
+                    padding: .3em .3em .3em 1.5em;
+                }
+            }
+        }
+    }
+    li ul.flexnav-show {
+
+        li {
+            overflow: visible;
+        }
+    }
+
+    li ul li a {
+        display: block;
+        background: $second_level;
+    }
+    ul li ul li a {
+        background: $third_level;
+    }
+    ul li ul li ul li a {
+        background: $fourth_level;
+    }
+    .touch-button {
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        width: $touch-button-size ;
+        height: $touch-button-size;
+        display: inline-block;
+        background: #acaca1;
+        background: rgba(0,0,0,.075);
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
+        .navicon {
+            position: relative;
+            top: $touch-button-size/2 - (9);
+            font-size: 12px;
+            color: #666;
+        }
+    }
+}
+.menu-button {
+    position: relative;
+    display: block;
+    padding: 1em;
+    background: $top_level;
+    color: $nav_text;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+
+    &.one-page {
+        position: fixed;
+        top: 0;
+        right: 5%;
+        padding-right: 45px;
+    }
+
+    .touch-button {
+        background: transparent;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        width: $kss-line-height * $kss-font-size;
+        height: $kss-line-height * $kss-font-size;
+        display: inline-block;
+        text-align: center;
+
+        .navicon {
+            font-size: 16px;
+            position: relative;
+            top: $touch-button-size/2 - (5);
+            color: #666;
+        }
+    }
+}
+
+@media all and (min-width: 800px) {
+    body.one-page {
+        padding-top: 70px;
+    }
+    .flexnav {
+        overflow: visible;
+        &.opacity {
+            opacity: 1;
+        }
+        &.one-page {
+            top: 0;
+            right: auto;
+            max-width: 1080px;
+        }
+        li {
+            position: relative;
+            list-style: none;
+            float: left;
+            display: block;
+            background-color: #a6a6a2;
+            overflow: visible;
+            width: 20%;
+        }
+        li a {
+            border-left: 1px solid #acaca1;
+            border-bottom: none;
+        }
+        li > ul {
+            position: absolute;
+            top: auto;
+            left: 0;
+
+            li {
+                width: 100%;
+            }
+        }
+        li ul li > ul {
+            margin-left: 100%;
+            top: 0;
+        }
+        li ul li:hover > ul,
+        li ul li > ul.flexnav-show {
+        }
+        li ul li a {
+            border-bottom: none;
+        }
+        li ul.open {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+            li {
+                overflow: visible;
+                max-height: 100px;
+            }
+            ul.open {
+                margin-left: 100%;
+                top: 0;
+            }
+        }
+    }
+    .menu-button {
+        display: none;
+    }
+}
+
+.oldie {
+    body.one-page {
+        padding-top: 70px;
+    }
+    .flexnav {
+        overflow: visible;
+        &.one-page {
+            top: 0;
+            right: auto;
+            max-width: 1080px;
+        }
+        li {
+            position: relative;
+            list-style: none;
+            float: left;
+            display: block;
+            background-color: #a6a6a2;
+            width: 20%;
+            min-height: $touch-button-size;
+            overflow: visible;
+        }
+        li:hover > ul {
+            display: block;
+            width: 100%;
+            overflow: visible;
+            li {
+                width: 100%;
+                float: none;
+            }
+        }
+        li a {
+            border-left: 1px solid #acaca1;
+            border-bottom: none;
+            overflow: visible;
+        }
+        li > ul {
+            background:#acaca1;
+            position: absolute;
+            top: auto;
+            left: 0;
+            display: none;
+            z-index: 1;
+            overflow: visible;
+        }
+        li ul li ul {
+            top: 0;
+        }
+        li ul li a {
+            border-bottom: none;
+        }
+        li ul.open {
+            display: block;
+            width: 100%;
+            overflow: visible;
+            li {
+                width: 100%;
+            }
+            ul.open {
+                margin-left: 100%;
+                top: 0;
+                display: block;
+                width: 100%;
+                overflow: visible;
+            }
+        }
+        ul li:hover ul {
+            margin-left: 100%;
+            top: 0;
+        }
+    }
+    .menu-button {
+        display: none;
+    }
+    &.ie7 .flexnav li {
+        width: 19.9%;
+    }
+}

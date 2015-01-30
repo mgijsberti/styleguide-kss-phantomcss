@@ -1,0 +1,108 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Report Failures</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
+
+  <script>
+
+     function disableButton(id){
+        var sel = 'button#' + id;
+        $(sel).prop('disabled', true);
+     }
+
+     function markRow(id){
+       var sel = "tr#" + id;
+       $(sel).css('background-color', 'LightGreen');
+       var image  = sel + "  td.image";
+       $(image).html('');
+     }
+
+     var messageStyle = {
+       "background-color" :  "LightGreen",
+        "border" : "1px solid black",
+        "margin" : "5px",
+        "width" : "300px",
+        "height" : "25px"
+     }
+
+     var errorMessageStyle = {
+       "background-color" :  "IndianRed",
+       "border" : "1px solid black",
+       "margin" : "5px",
+       "width" : "300px",
+       "height" : "25px"
+     }
+
+     function setMessage(message){
+       var htmlM = "<span>" + message + "</span>";
+       $('.message').html(htmlM).css(messageStyle);
+     }
+
+     function setFailure(message){
+       var htmlM = "<span>" + message + "</span>";
+       $('.message').html(htmlM).css(errorMessageStyle);
+     }
+
+     function rebase(section, selector, id) {
+       $.get('/test/rebase?section=' + section + "&selector=" + selector,
+           function(data) {
+                console.log('Status : ' + data );
+                if(data.match('success')){
+                  setMessage('Rebase success : [ ' + section + '_' + selector + ']');
+                  disableButton(id);
+                  markRow(id);
+                } else {
+                  setFailure('Rebase failed : [ ' + section + '_' + selector + ']');
+                }
+       });
+     } ;
+
+  </script>
+
+</head>
+<body role="document" >
+<div class="page-header" >
+<h1>Failures</h1>
+</div>
+<div class="message"></div>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Section</th>
+        <th>Selector</th>
+        <th>Origineel</th>
+        <th>Nieuw</th>
+        <th>Verschil</th>
+        <th>Rebase</th>
+      </tr>
+      </thead>
+      <tbody>
+        {{#files}}
+      <tr id="{{id}}">
+        <td>{{section}}</td>
+        <td>{{selector}}</td>
+        <td><img src="{{original}}"/></td>
+        <td><img src="{{diff}}"/></td>
+        <td class="image" ><img src="{{path}}"/></td>
+        <td><button id="{{id}}" onclick="rebase('{{section}}','{{selector}}','{{id}}');">OK</button></td>
+      </tr>
+      {{/files}}
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
