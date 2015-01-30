@@ -114,8 +114,8 @@ function getImageName(section, selector){
 var getImagePath = function(data){
     var d = Q.defer();
     console.log('getImagePath : ' + JSON.stringify(data));
-    var failuresPath =  "test/styleguide/failures";
-    var screenshotPath = "test/styleguide/screenshots";
+    var failuresPath =  "test/report/failures";
+    var screenshotPath = "test/report/screenshots";
     var value = {
         "failed" : {
             "failures" : "",

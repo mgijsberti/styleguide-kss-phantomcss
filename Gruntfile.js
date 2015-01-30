@@ -68,7 +68,7 @@ module.exports = function(grunt) {
             }
         },
 
-        //run concurrent tasks for watching scripts, styleguide and comparison with phantomcss
+        //run concurrent tasks for watching scripts, styleguide and comparison with PhantomCss
         concurrent: {
             connect: {
                 tasks: ['watch:scripts', 'connect:styleguide'],
@@ -105,6 +105,7 @@ module.exports = function(grunt) {
             }
         },
         connect: {
+            //serve styleguide on localhost:1419/
             styleguide: {
                 options: {
                     port: 1419,
@@ -115,17 +116,27 @@ module.exports = function(grunt) {
                     open: true,
                     livereload: 1420,
                     development: true
+
                 }
             },
+            //serve PhantomCss report on localhost:1421/
             compare:{
                 options:{
-                    port:1421,
+                    port: 1421,
                     protocol: 'http',
                     hostname: 'localhost',
                     keepalive: true,
                     base: ['test/report/'],
                     open: true,
-                    livereload: 1422
+                    livereload: 1422,
+                    middleware: function(connect, options, middlewares) {
+                        middlewares.push(rebase);
+                        middlewares.unshift(function (req, res, next) {
+                            return next();
+
+                        });
+                        return middlewares;
+                    }
                 }
             }
         }
