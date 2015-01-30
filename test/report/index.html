@@ -1,0 +1,210 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Report Failures</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+  <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
+
+  <script>
+
+     function disableButton(id){
+        var sel = 'button#' + id;
+        $(sel).prop('disabled', true);
+     }
+
+     function markRow(id){
+       var sel = "tr#" + id;
+       $(sel).css('background-color', 'LightGreen');
+       var image  = sel + "  td.image";
+       $(image).html('');
+     }
+
+     var messageStyle = {
+       "background-color" :  "LightGreen",
+        "border" : "1px solid black",
+        "margin" : "5px",
+        "width" : "300px",
+        "height" : "25px"
+     }
+
+     var errorMessageStyle = {
+       "background-color" :  "IndianRed",
+       "border" : "1px solid black",
+       "margin" : "5px",
+       "width" : "300px",
+       "height" : "25px"
+     }
+
+     function setMessage(message){
+       var htmlM = "<span>" + message + "</span>";
+       $('.message').html(htmlM).css(messageStyle);
+     }
+
+     function setFailure(message){
+       var htmlM = "<span>" + message + "</span>";
+       $('.message').html(htmlM).css(errorMessageStyle);
+     }
+
+     function rebase(section, selector, id) {
+       $.get('/test/rebase?section=' + section + "&selector=" + selector,
+           function(data) {
+                console.log('Status : ' + data );
+                if(data.match('success')){
+                  setMessage('Rebase success : [ ' + section + '_' + selector + ']');
+                  disableButton(id);
+                  markRow(id);
+                } else {
+                  setFailure('Rebase failed : [ ' + section + '_' + selector + ']');
+                }
+       });
+     } ;
+
+  </script>
+
+</head>
+<body role="document" >
+<div class="page-header" >
+<h1>Failures</h1>
+</div>
+<div class="message"></div>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Section</th>
+        <th>Selector</th>
+        <th>Origineel</th>
+        <th>Nieuw</th>
+        <th>Verschil</th>
+        <th>Rebase</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr id="s1-1">
+        <td>1.1</td>
+        <td>no selector</td>
+        <td><img src="screenshots&#x2F;s1_1.png"/></td>
+        <td><img src="screenshots&#x2F;s1_1.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_1.fail.png"/></td>
+        <td><button id="s1-1" onclick="rebase('1.1','no selector','s1-1');">OK</button></td>
+      </tr>
+      <tr id="s1-1-disabled">
+        <td>1.1</td>
+        <td>disabled</td>
+        <td><img src="screenshots&#x2F;s1_1_disabled.png"/></td>
+        <td><img src="screenshots&#x2F;s1_1_disabled.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_1_disabled.fail.png"/></td>
+        <td><button id="s1-1-disabled" onclick="rebase('1.1','disabled','s1-1-disabled');">OK</button></td>
+      </tr>
+      <tr id="s1-1-pseudo-class-active">
+        <td>1.1</td>
+        <td>pseudo_class_active</td>
+        <td><img src="screenshots&#x2F;s1_1_pseudo_class_active.png"/></td>
+        <td><img src="screenshots&#x2F;s1_1_pseudo_class_active.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_1_pseudo_class_active.fail.png"/></td>
+        <td><button id="s1-1-pseudo-class-active" onclick="rebase('1.1','pseudo_class_active','s1-1-pseudo-class-active');">OK</button></td>
+      </tr>
+      <tr id="s1-1-pseudo-class-hover">
+        <td>1.1</td>
+        <td>pseudo_class_hover</td>
+        <td><img src="screenshots&#x2F;s1_1_pseudo_class_hover.png"/></td>
+        <td><img src="screenshots&#x2F;s1_1_pseudo_class_hover.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_1_pseudo_class_hover.fail.png"/></td>
+        <td><button id="s1-1-pseudo-class-hover" onclick="rebase('1.1','pseudo_class_hover','s1-1-pseudo-class-hover');">OK</button></td>
+      </tr>
+      <tr id="s1-2">
+        <td>1.2</td>
+        <td>no selector</td>
+        <td><img src="screenshots&#x2F;s1_2.png"/></td>
+        <td><img src="screenshots&#x2F;s1_2.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_2.fail.png"/></td>
+        <td><button id="s1-2" onclick="rebase('1.2','no selector','s1-2');">OK</button></td>
+      </tr>
+      <tr id="s1-2-btn-smalll">
+        <td>1.2</td>
+        <td>btn_smalll</td>
+        <td><img src="screenshots&#x2F;s1_2_btn_smalll.png"/></td>
+        <td><img src="screenshots&#x2F;s1_2_btn_smalll.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_2_btn_smalll.fail.png"/></td>
+        <td><button id="s1-2-btn-smalll" onclick="rebase('1.2','btn_smalll','s1-2-btn-smalll');">OK</button></td>
+      </tr>
+      <tr id="s1-3">
+        <td>1.3</td>
+        <td>no selector</td>
+        <td><img src="screenshots&#x2F;s1_3.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3.fail.png"/></td>
+        <td><button id="s1-3" onclick="rebase('1.3','no selector','s1-3');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-danger">
+        <td>1.3</td>
+        <td>btn_danger</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_danger.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_danger.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_danger.fail.png"/></td>
+        <td><button id="s1-3-btn-danger" onclick="rebase('1.3','btn_danger','s1-3-btn-danger');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-info">
+        <td>1.3</td>
+        <td>btn_info</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_info.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_info.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_info.fail.png"/></td>
+        <td><button id="s1-3-btn-info" onclick="rebase('1.3','btn_info','s1-3-btn-info');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-inverse">
+        <td>1.3</td>
+        <td>btn_inverse</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_inverse.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_inverse.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_inverse.fail.png"/></td>
+        <td><button id="s1-3-btn-inverse" onclick="rebase('1.3','btn_inverse','s1-3-btn-inverse');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-link">
+        <td>1.3</td>
+        <td>btn_link</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_link.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_link.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_link.fail.png"/></td>
+        <td><button id="s1-3-btn-link" onclick="rebase('1.3','btn_link','s1-3-btn-link');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-primary">
+        <td>1.3</td>
+        <td>btn_primary</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_primary.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_primary.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_primary.fail.png"/></td>
+        <td><button id="s1-3-btn-primary" onclick="rebase('1.3','btn_primary','s1-3-btn-primary');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-success">
+        <td>1.3</td>
+        <td>btn_success</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_success.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_success.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_success.fail.png"/></td>
+        <td><button id="s1-3-btn-success" onclick="rebase('1.3','btn_success','s1-3-btn-success');">OK</button></td>
+      </tr>
+      <tr id="s1-3-btn-warning">
+        <td>1.3</td>
+        <td>btn_warning</td>
+        <td><img src="screenshots&#x2F;s1_3_btn_warning.png"/></td>
+        <td><img src="screenshots&#x2F;s1_3_btn_warning.diff.png"/></td>
+        <td class="image" ><img src="failures&#x2F;s1_3_btn_warning.fail.png"/></td>
+        <td><button id="s1-3-btn-warning" onclick="rebase('1.3','btn_warning','s1-3-btn-warning');">OK</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

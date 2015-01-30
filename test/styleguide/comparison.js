@@ -15,7 +15,7 @@ var height = 1080;
 var json = '../scraper/selectors-sync.json';
 //var jsonLinks = '../scraper/links.json'
 
-function getPath(){
+function getRoot(){
     path = "";
     var options = casper.cli.options;
     if(options["path"]){
@@ -25,9 +25,19 @@ function getPath(){
     return path;
 }
 
+function getPath(){
+    path = "";
+    var options = casper.cli.options;
+    if(options["path"]){
+        path = options["path"] + "/report/";
+    }
+    console.log('path = ' + path);
+    return path;
+}
+
 phantomcss.init({
         screenshotRoot: getPath() + 'screenshots',
-        libraryRoot:  getPath() + 'bower_components/phantomcss',
+        libraryRoot:  getRoot() + 'bower_components/phantomcss',
         failedComparisonsRoot: getPath() + 'failures',
         fileNameGetter: function(root,fileName){
             var name;

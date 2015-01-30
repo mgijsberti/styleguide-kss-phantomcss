@@ -5,8 +5,10 @@ var fs=require('fs'),
     myfiles=[],
     htmlTemplate;
 
-var failuresPath =  "../styleguide/failures";
-var screenshotPath = "../styleguide/screenshots";
+var failuresPath =  "failures";
+var screenshotPath = "screenshots";
+var report = 'index.html';
+var current = '/report/';
 
 function getFailuresPath(){
     path = "..";
@@ -21,7 +23,7 @@ function getFailuresPath(){
             }
         }
     });
-    path = path + "/styleguide/failures";
+    path = path + current + "failures";
 //    console.log("failures path [" + path + "]");
     return path;
 }
@@ -39,7 +41,7 @@ function getReportPath(){
             }
         }
     });
-    path = path + "/report/" + 'failures.html';
+    path = path + current + report;
 //    console.log("report path [" + path + "]");
     return path;
 }
@@ -57,7 +59,7 @@ function getTemplatePath(){
             }
         }
     });
-    path = path + "/report/" + 'index_template.html';
+    path = path + current + 'index_template.html';
 //    console.log("report path [" + path + "]");
     return path;
 }
@@ -260,15 +262,14 @@ function getOriginal(item){
 }
 
 function getFailure(item){
-    var r = new RegExp("\\./test/styleguide/failures");
+    var r = new RegExp("\\./test/report/failures");
     var name = item.replace(r,"");
     return failuresPath + name;
 }
 
 //removes the path, the .[\\d].fail.png and the start letter "s"
 function clean(item){
-//    var r = new RegExp("\\.\\./styleguide/failures/");
-    var r = new RegExp("\\./test/styleguide/failures/");
+    var r = new RegExp("\\./test/report/failures/");
     var name = item.replace(r,"");
     r = new RegExp("\\.\\d\\.fail\\.png","g");
     if(!item.match(r)) {

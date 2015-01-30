@@ -9,8 +9,8 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 //url of the living styleguide
-var base = 'http://localhost:1419/nsdesign/styleguide/docs/css/';
-var section = 'section-1.html';
+var base = 'http://localhost:1419/';
+var section = '';
 var url = base + section;
 var foundLinks = [];
 var jsonLinksFn = 'links.json';

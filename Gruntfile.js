@@ -1,21 +1,4 @@
-//http://mikefowler.me/2013/10/14/static-styleguides-kss-node/
-//https://github.com/indieisaconcept/grunt-styleguide
-
-//var rebase = require('./rebase.js');
-//grunt.loadNpmTasks('grunt-contrib-clean');
-//grunt.loadNpmTasks('grunt-contrib-less');
-//grunt.loadNpmTasks('grunt-contrib-watch');
-
-//variables for phantomCss testing
-//grunt.loadTasks('test');
-//var phPath = 'test/';
-//var scraper = 'scraper/syncscraper.js';
-//var scraperPath = phPath + scraper;
-//var casper = 'styleguide/comparison.js';
-//var casperPath = phPath + casper;
-//var report = 'report/genindex.js'
-//var reportPath = phPath + report;
-//var cmdAll = 'node ' + scraperPath + ' && casperjs test ' + casperPath + ' && ' + ' node ' + reportPath;
+'use strict';
 
 module.exports = function(grunt) {
 
@@ -27,8 +10,34 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
+    var rebase = require('./rebase.js');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadTasks('test');
+    var phPath = 'test/';
+    var scraper = 'scraper/syncscraper.js';
+    var scraperPath = phPath + scraper;
+    var casper = 'styleguide/comparison.js --path=test';
+    var casperPath = phPath + casper;
+    var report = 'report/genindex.js'
+
     grunt.initConfig({
 
+        //comparison with phantomcss
+        clean: {
+            init: ["test/report/failures/*.fail.png", "test/report/screenshots/*.png" ],
+            rebase: ["test/report/failures/*.fail.png", "test/report/screenshots/*.fail.png" ]
+        },
+        scraper: {
+            run:{ cmd: 'node', options: {path: './test', src: scraper}}
+        },
+        casper: {
+            run:{ cmd: 'casperjs test', options: {path: 'test', src: casper}}
+        },
+        report:{
+            run:{cmd: 'node', options: {path: './test', src: report}}
+        },
+
+        //compile less, kss and sass
         less: {
             development: {
                 options: {
@@ -39,7 +48,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         kss: {
             options: {
                 includeType: 'less',
@@ -52,7 +60,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         sass: {
             dist: {
                 files: {
@@ -60,10 +67,31 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        //run concurrent tasks for watching scripts, styleguide and comparison with phantomcss
         concurrent: {
-            connect: ['watch:scripts','connect:styleguide'],
-            options: {
-                logConcurrentOutput: true
+            connect: {
+                tasks: ['watch:scripts', 'connect:styleguide'],
+                options: {
+                    logConcurrentOutput: true
+                }
+            },
+
+            //set the baseline, no report is generated yet
+            compare_init: {
+                tasks: ['clean','scraper','casper'],
+                options: {
+                    limit:1,
+                    logConcurrentOutput: true
+                }
+            },
+            //Report shows the results of the changes
+            compare:{
+                tasks: ['scraper','casper','report','connect:compare'],
+                options: {
+                    limit:1,
+                    logConcurrentOutput: true
+                }
             }
         },
         watch: {
@@ -88,6 +116,17 @@ module.exports = function(grunt) {
                     livereload: 1420,
                     development: true
                 }
+            },
+            compare:{
+                options:{
+                    port:1421,
+                    protocol: 'http',
+                    hostname: 'localhost',
+                    keepalive: true,
+                    base: ['test/report/'],
+                    open: true,
+                    livereload: 1422
+                }
             }
         }
 
@@ -99,6 +138,7 @@ module.exports = function(grunt) {
         'less',
         'concurrent:connect'
     ]);
+
 }
 
 

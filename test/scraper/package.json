@@ -7,7 +7,8 @@
   "dependencies": {
     "express": "latest",
     "request": "latest",
-    "cheerio": "latest"
+    "cheerio": "latest",
+    "q": "latest"
   },
   "devDependencies": {
     "jasmine": "^2.1.1"

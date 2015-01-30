@@ -2,32 +2,63 @@ This project is a POC for creating PhantomCSS test scripts with kss from a Livin
 
 Installation
 ===========
+Install the following npm modules with option --saved-dev :
+grunt, grunt-concurrent, grunt-contrib-connect, grunt-contrib-less, grunt-contrib-sass, grunt-contrib-watch,
+grunt-kss, load-grunt-tasks, grunt-styleguide,
 
 In folder test
 bower install phantomcss
+npm install bower
 
-In root
-npm install resemblejs (phantomcss assumes that resemblejs is installed with npm )
+In folder styleguide
+bower install resemblejs
 
+Start living styleguide
+=======================
+grunt styleguide
+
+Starts the styleguide on http://localhost:1419. The source files and index.html of the living styleguide are watched.
+The styleguide shows the button with different styles. If you change the less files in app/src or the index.html in
+
+Open a new terminal for the comparison of the changes in css. Phantomcss makes screenshot for each element which is
+different.
+
+Testing living styleguide
+=========================
+
+The first step is to set the baseline. Phantomcss will generate screenshots in the test/report/screenshots folder.
 
 Setup baseline
 ==============
 
-casperjs test test/testsuite.js
+grunt concurrent:compare_init
 
-In testsuite.js the url is http://localhost:63342/styleguide-poc/styleguide/section-1.html.
-The portnumber is created by Intellij (starting the section-1.html from Intellij). So you need to adapt the url.
 
-Baseline is generated in test/screenshots
+Apply a change in the less and check the results:
+=================================================
 
-Change
+- Change in the app/src/buttons.less the padding attribute of the .btn class:
+
+  padding: 4px 22px; into padding: 4px 52px;
+
+- Wait for reloading of the Living Styleguide.
+- Now run
+
+  grunt concurrent:compare
+
+The report with differences will automatically load at http://localhost:1421/. PhantomCss will make new screenshots
+for each css element in the markup of the less files, and compare them with the originals. A report will show the
+originals, the new (after the applied change), and the differences.
+
+Reinitialize
+============
+
+grunt clean:init will reinitialize the validation, all screenshots are removed.
+
+Rebase
 ======
+To do
 
-Make a change in the size of font-family in buttons.less
-./build.sh (generates the stylesuite)
-casperjs test test/testsuite.js
-
-Now you can see the failed screenshots in the /failures folder and in test/screenshots
 
 
 
