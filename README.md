@@ -84,6 +84,8 @@ This command will reinitialize the validation, all screenshots are removed.
 
 * rebase
 * styleguide from http://kss-node.github.io/kss-node/
+* jasmine
+* grunt tasks
 
 
 
