@@ -1,15 +1,15 @@
 {
-    "name": "NS-Webdesign-v3",
-    "version": "0.0.1",
-    "description": "PnantomCSS tests for Living Styleguide",
-    "private": true,
-    "devDependencies": {
-        "bower": "1.3.12",
-        "resemblejs": "1.2.0"
-    },
-    "keywords": [
-        "styleguide",
-        "css",
-        "phantomcss"
-    ]
+  "name": "kss-phantomcss",
+  "version": "0.0.1",
+  "description": "PhantomCSS tests for KSS Living Styleguide",
+  "private": true,
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "resemblejs": "1.2.0"
+  },
+  "keywords": [
+    "styleguide",
+    "css",
+    "phantomcss"
+  ]
 }

@@ -19,21 +19,14 @@ See for more info about KSS Living Styleguide and PhantomCss:
 
 ## Installation
 
-Install the following npm modules with option --saved-dev :
-  * grunt
-  * grunt-concurrent
-  * grunt-contrib-connect
-  * grunt-contrib-less
-  * grunt-contrib-sass
-  * grunt-contrib-watch
-  * grunt-kss
-  * load-grunt-tasks
-  * grunt-styleguide
+npm install
 
-Or run npm install (which install the dependencies from the package.json).
+In test/scraper
 
-Run in the folder test/styleguide :
- * npm install bower
+npm install
+
+In test/styleguide :
+ * npm install (installs bower)
  * bower install phantomcss
  * bower install resemblejs
 
