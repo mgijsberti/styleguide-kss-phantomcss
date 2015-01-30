@@ -3,10 +3,14 @@
 
 This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss validation.
 The PhantomCss validation scripts are generated from the Living Styleguide. With this setup you can automatically
-validate any unexpected side-effects of changes in your css classes.Library used are kss-node and phantomcss.
+validate any unexpected side-effects of changes in your css classes.
+
+Libraries used are kss-node and phantomcss:
+
+* https://github.com/kss-node/kss-node
+* https://github.com/Huddle/PhantomCSS
 
 ## Installation
-
 
 Install the following npm modules with option --saved-dev :
   * grunt
@@ -31,47 +35,52 @@ Run in the folder test/styleguide :
 grunt styleguide
 ```
 
-
 Starts the styleguide on http://localhost:1419. The source files and index.html of the living styleguide are watched.
 The styleguide shows the button with different styles. If you change the less files in app/src or the index.html in
+kss/template, the styleguide is reloaded.
 
-Open a new terminal for the comparison of the changes in css. Phantomcss makes screenshot for each element which is
-different.
+Open a new terminal for the comparison of the changes in css. Phantomcss makes screenshots for each css element of
+the styleguide, which are described in the markup of the less files.
 
-Testing living styleguide
-=========================
+
+## Testing living styleguide
+
 
 The first step is to set the baseline. Phantomcss will generate screenshots in the test/report/screenshots folder.
 
-Setup baseline
-==============
+## Setup baseline
 
+```shell
 grunt concurrent:compare_init
+```
 
+## Apply a change in the less and check the results:
 
-Apply a change in the less and check the results:
-=================================================
-
-- Change in the app/src/buttons.less the padding attribute of the .btn class:
+Change in the app/src/buttons.less the padding attribute of the .btn class:
 
   padding: 4px 22px; into padding: 4px 52px;
 
-- Wait for reloading of the Living Styleguide.
-- Now run
+Wait for reloading of the Living Styleguide.
+Now run
 
-  grunt concurrent:compare
+```shell
+grunt concurrent:compare
+```
 
 The report with differences will automatically load at http://localhost:1421/. PhantomCss will make new screenshots
 for each css element in the markup of the less files, and compare them with the originals. A report will show the
 originals, the new (after the applied change), and the differences.
 
-Reinitialize
-============
+## Reinitialize
 
-grunt clean:init will reinitialize the validation, all screenshots are removed.
 
-Rebase
-======
+```shell
+grunt clean:init
+```
+This command will reinitialize the validation, all screenshots are removed.
+
+##Rebase
+
 To do
 
 
