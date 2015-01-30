@@ -1,14 +1,21 @@
 # Living Styleguide Example with automatic PhantomCss comparison of screenshots
 
 
-This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss validation.
+This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss.
 The PhantomCss validation scripts are generated from the Living Styleguide. With this setup you can automatically
-validate any unexpected side-effects of changes in your css classes.
+validate any unexpected side-effects of changes (regression) in your css classes.
 
-Libraries used are kss-node and phantomcss:
+See for more info about KSS Living Styleguide and PhantomCss:
 
+### KSS Living Styleguides
+* http://warpspire.com/kss/styleguides/
+* http://web-design-weekly.com/2013/02/01/getting-started-with-kss-node/
 * https://github.com/kss-node/kss-node
+
+### PhantomCss
+* http://mattsnider.com/using-phantomcss-for-regression-testing-your-css/
 * https://github.com/Huddle/PhantomCSS
+
 
 ## Installation
 
@@ -23,7 +30,8 @@ Install the following npm modules with option --saved-dev :
   * load-grunt-tasks
   * grunt-styleguide
 
-Or run npm install (which install the dependencies from the package.json)
+Or run npm install (which install the dependencies from the package.json).
+
 Run in the folder test/styleguide :
  * npm install bower
  * bower install phantomcss
@@ -45,8 +53,8 @@ the styleguide, which are described in the markup of the less files.
 
 ## Testing living styleguide
 
-
-The first step is to set the baseline. Phantomcss will generate screenshots in the test/report/screenshots folder.
+The first step is to make a baseline. PhantomCss will generate screenshots in the test/report/screenshots folder. These
+screenshots will serve as a baseline.
 
 ## Setup baseline
 
@@ -61,6 +69,7 @@ Change in the app/src/buttons.less the padding attribute of the .btn class:
   padding: 4px 22px; into padding: 4px 52px;
 
 Wait for reloading of the Living Styleguide.
+
 Now run
 
 ```shell
@@ -72,7 +81,6 @@ for each css element in the markup of the less files, and compare them with the 
 originals, the new (after the applied change), and the differences.
 
 ## Reinitialize
-
 
 ```shell
 grunt clean:init
