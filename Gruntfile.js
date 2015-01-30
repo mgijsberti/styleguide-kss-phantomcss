@@ -139,6 +139,10 @@ module.exports = function(grunt) {
         'concurrent:connect'
     ]);
 
+    grunt.registerTask('verify:clean',['clean:init']);
+    grunt.registerTask('verify:init',['concurrent:compare_init']);
+    grunt.registerTask('verify:compare',['concurrent:compare']);
+
 }
 
 

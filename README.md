@@ -54,10 +54,10 @@ screenshots will serve as a baseline.
 ## Setup baseline
 
 ```shell
-grunt concurrent:compare_init
+grunt verify:init
 ```
 
-## Apply a change in the less and check the results:
+## Apply a change in the buttons.less and check the results:
 
 Change in the app/src/buttons.less the padding attribute of the .btn class:
 
@@ -68,7 +68,7 @@ Wait for reloading of the Living Styleguide.
 Now run
 
 ```shell
-grunt concurrent:compare
+grunt verify:compare
 ```
 
 The report with differences will automatically load at http://localhost:1421/. PhantomCss will make new screenshots
@@ -78,7 +78,7 @@ originals, the new (after the applied change), and the differences.
 ## Reinitialize
 
 ```shell
-grunt clean:init
+grunt verify:clean
 ```
 This command will reinitialize the validation, all screenshots are removed.
 
