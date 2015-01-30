@@ -19,17 +19,19 @@ See for more info about KSS Living Styleguide and PhantomCss:
 
 ## Installation
 
+In root folder, test/scraper and test/scraper
+
+```shell
 npm install
+```
 
-In test/scraper
+In test/styleguide
 
-npm install
-
-In test/styleguide :
- * npm install (installs bower)
- * bower install phantomcss
- * bower install resemblejs
-
+```shell
+ npm install
+ bower install phantomcss
+ bower install resemblejs
+```
 ## Start living styleguide
 
 ```shell
