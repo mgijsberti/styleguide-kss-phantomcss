@@ -19,7 +19,7 @@ See for more info about KSS Living Styleguide and PhantomCss:
 
 ## Installation
 
-In root folder, test/scraper and test/scraper
+In the root folder, folders test/scraper and test/report
 
 ```shell
 npm install
