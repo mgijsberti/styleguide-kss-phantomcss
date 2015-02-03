@@ -37,37 +37,29 @@ module.exports = function(grunt) {
             run:{cmd: 'node', options: {path: './test', src: report}}
         },
 
-        //compile less, kss and sass
+        //compile less and kss
         less: {
-            development: {
+            styleguide: {
                 options: {
-                    paths: ["app/src"]
+                    paths: ["demo"]
                 },
                 files: {
-                    "styleguide/public/style.css": "app/**/*.less"
+                    "styleguide/public/style.css": "demo/**/*.less"
                 }
             }
         },
         kss: {
             options: {
                 includeType: 'less',
-                template: 'kss/template',
-                helpers: 'kss/template/helpers'
+                template: 'kss-lib/template',
+                helpers: 'kss-lib/template/helpers'
             },
             dist: {
                 files: {
-                    'styleguide': ['app/src/']
+                    'styleguide': ['demo']
                 }
             }
         },
-        sass: {
-            dist: {
-                files: {
-                    'kss/template/public/kss-style.css': 'kss/template/scss/kss-style.scss'
-                }
-            }
-        },
-
         //run concurrent tasks for watching scripts, styleguide and comparison with PhantomCss
         concurrent: {
             connect: {
@@ -96,7 +88,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['kss/template/*.html', 'app/src/*.less'],
+                files: ['kss/template/*.html', 'demo/**/*.less'],
                 tasks: ['styleguide'],
                 options: {
                     spawn: false,
@@ -144,9 +136,8 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('styleguide', [
-        'sass',
         'kss',
-        'less',
+        'less:styleguide',
         'concurrent:connect'
     ]);
 

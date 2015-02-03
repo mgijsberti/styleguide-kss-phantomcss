@@ -71,23 +71,94 @@ Now run
 grunt verify:compare
 ```
 
-The report with differences will automatically load at http://localhost:1421/. PhantomCss will make new screenshots
-for each css element in the markup of the less files, and compare them with the originals. A report will show the
-originals, the new (after the applied change), and the differences.
+The 'failures' report with differences will automatically load at http://localhost:1421/. PhantomCss will make new
+screenshots for each css element in the markup of the less files, and compare them with the originals.
+A report will show the originals, the new (after the applied change), and the differences between orginals
+and new.
 
 ## Reinitialize
 
 ```shell
 grunt verify:clean
 ```
-This command will reinitialize the validation, all screenshots are removed.
+This command will reinitialize the validation. All the screenshots are removed.
+
+## Rebase
+
+In the report you can select a selector and rebase the selector. This means that the reported changes
+are correct for the css selector. If you press the button 'rebase' for a particular css selector, the
+new screenshots are copied onto the originals. If you run again grunt verify:compare, the 'rebased' css selector
+is removed from the report.
+
+
+
+## Tutorial
+
+This tutorial explains how the PhantomCss diff tool works together with the Living Styleguide.
+
+The living Styleguide is live on localhost:1419. Revert any change in the less files in the demo folder.
+
+* Reinitialize
+
+```shell
+grunt verify:clean
+```
+* Setup a baseline with screenshots for PhantomCss.
+
+```shell
+grunt verify:init
+```
+* Aply the following change in demo/variables.less
+
+  @font-size: 14px; to @font-size: 17px;
+
+* Compare
+
+```shell
+grunt verify:compare
+```
+
+The report starts at localhost:4121. The buttons are now too large and incorrect,
+but the forms are as intended.
+
+* Rebase the forms of section 2 because the font-size change had the intended result. Leave
+the buttons in the report.
+
+* Compare again
+
+```shell
+grunt verify:compare
+```
+In the report the forms are now gone.
+
+* Fix the buttons
+
+Add two variables for the font-size of the buttons and the forms in variables.less.
+```shell
+  @font-size-buttons: 14px;
+  @font-size-forms: 17px;
+```
+Use variable font-size-buttons in buttons.less and font-size-forms in base.less.
+Wait for the styleguide to reload. and compare again.
+
+```shell
+grunt verify:compare
+```
+
+In the report, check that the new buttons have the intended result. If ok, rebase the buttons
+as well. Run again:
+
+```shell
+grunt verify:compare
+```
+
+Now the report does not show any selectors. The forms and buttons are correct.
 
 ##Todo
 
-* documentation rebase
-* test workflow, fix issues
-* styleguide from http://kss-node.github.io/kss-node/
-* jasmine
+### Fix last step in report (failures are not removed on the second rebase).
+### improve styling report
+### jasmine
 
 
 

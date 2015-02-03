@@ -8,7 +8,7 @@ var utils = require("utils");
 
 //variables
 var server = 'http://localhost:1419';
-var path =  '/nsdesign/styleguide/docs/css/section-1.html';
+var path =  '/section-1.html';
 var url  =  server + path;
 var width =  1920;
 var height = 1080;

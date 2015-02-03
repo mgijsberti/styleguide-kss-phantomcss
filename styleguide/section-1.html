@@ -1,324 +1,154 @@
 <!DOCTYPE html>
-<html class="no-js" lang="nl" xml:lang="nl">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
   <title>KSS: Living Styleguide</title>
+
   <meta name="description" content="">
-  <meta name="generator" content="kss-node" />
+  <meta name="generator" content="kss-node">
+  <meta name="viewport" content="width=device-width">
 
- <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="stylesheet" href="public/kss-style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+  <link rel="stylesheet" href="public/kss.css">
   <link rel="stylesheet" href="public/style.css">
-
 </head>
-<body class="kss-body">
+<body><div id="kss-wrapper">
 
-<div class="kss-container">
-    <header class="kss-site-header">
-        <div class="menu-button">
-            <a class="kss-a kss-homebutton" href="index.html">
-                <span class="">Example Styleguide</span>
-            </a>
-            <span class="menu">Menu</span>
+<div id="kss-nav">
+  <header id="kss-header">
+    <hgroup><h1>kss-node Styleguide</h1></hgroup>
+  </header>
+  <aside>
+    <nav><ul>
+      <li><a href="./">0.0: Overview</a></li>
+      <li><a class='kss-a' href="section-1.html">1.0: Modules</a>
+      </li>
+      <li><a class='kss-a' href="section-2.html">2.0: Forms</a>
+      </li>
+    </ul></nav>
+  </aside>
+</div>
+<div role="main" id="kss-main">
+  <article id="kss-content">
+
+
+      <h1 class="kss-title"><span class="kss-ref">1.0</span> - Modules</h1>
+
+        <div class="kss-box"><p>Reusable elements that can be used across the site.
+So far this just includes buttons.</p>
+</div>
+
+
+      <section class="kss-depth-2">
+
+      <h1 class="kss-title"><span class="kss-ref">1.1</span> - Buttons</h1>
+
+        <div class="kss-box"><p>A majority of buttons in the site are built from the same base class.</p>
+</div>
+
+        <table class="kss-mod-list">
+          <tr class="kss-mod-desc-group">
+            <td class="kss-mod-desc"><p>Default styling</p></td>
+            <td class="kss-mod-name"></td>
+          </tr>
+          <tr class="kss-mod-example screenshot" id="s1-1">
+            <td colspan="2"><a href="#" class="button {$modifiers}">Link Button</a>
+<button class="button {$modifiers}">Button Element</button>
+<input type="button" class="button {$modifiers}" value="input[type='button']"/></td>
+          </tr>
+          <tr class="kss-mod-desc-group">
+            <td class="kss-mod-desc"><p>Indicate that the button is the primary feature of this form.</p>
+</td>
+            <td class="kss-mod-name"><p>.primary</p></td>
+          </tr>
+          <tr class="kss-mod-example screenshot" id="s1-1-primary">
+            <td colspan="2"><a href="#" class="button primary">Link Button</a>
+<button class="button primary">Button Element</button>
+<input type="button" class="button primary" value="input[type='button']"/></td>
+          </tr>
+          <tr class="kss-mod-desc-group">
+            <td class="kss-mod-desc"><p>Indicate that the button will remove a feature, or other negative connotations.</p>
+</td>
+            <td class="kss-mod-name"><p>.remove</p></td>
+          </tr>
+          <tr class="kss-mod-example screenshot" id="s1-1-remove">
+            <td colspan="2"><a href="#" class="button remove">Link Button</a>
+<button class="button remove">Button Element</button>
+<input type="button" class="button remove" value="input[type='button']"/></td>
+          </tr>
+          <tr class="kss-mod-desc-group">
+            <td class="kss-mod-desc"><p>Highlight the button when hovered.</p>
+</td>
+            <td class="kss-mod-name"><p>:hover</p></td>
+          </tr>
+          <tr class="kss-mod-example screenshot" id="s1-1-pseudo-class-hover">
+            <td colspan="2"><a href="#" class="button pseudo-class-hover">Link Button</a>
+<button class="button pseudo-class-hover">Button Element</button>
+<input type="button" class="button pseudo-class-hover" value="input[type='button']"/></td>
+          </tr>
+          <tr class="kss-mod-desc-group">
+            <td class="kss-mod-desc"><p>Make the button change appearance to reflect it being disabled.</p>
+</td>
+            <td class="kss-mod-name"><p>:disabled</p></td>
+          </tr>
+          <tr class="kss-mod-example screenshot" id="s1-1-pseudo-class-disabled">
+            <td colspan="2"><a href="#" class="button pseudo-class-disabled">Link Button</a>
+<button class="button pseudo-class-disabled">Button Element</button>
+<input type="button" class="button pseudo-class-disabled" value="input[type='button']"/></td>
+          </tr>
+          <tr class="kss-mod-desc-group">
+            <td class="kss-mod-desc"><p>&quot;Press&quot; the button down when clicked.</p>
+</td>
+            <td class="kss-mod-name"><p>:active</p></td>
+          </tr>
+          <tr class="kss-mod-example screenshot" id="s1-1-pseudo-class-active">
+            <td colspan="2"><a href="#" class="button pseudo-class-active">Link Button</a>
+<button class="button pseudo-class-active">Button Element</button>
+<input type="button" class="button pseudo-class-active" value="input[type='button']"/></td>
+          </tr>
+        </table>
+
+        <div class="kss-markup">
+          <pre class="prettyprint lang-html">&lt;a href=&quot;#&quot; class=&quot;button {$modifiers}&quot;&gt;Link Button&lt;/a&gt;
+&lt;button class=&quot;button {$modifiers}&quot;&gt;Button Element&lt;/button&gt;
+&lt;input type=&quot;button&quot; class=&quot;button {$modifiers}&quot; value=&quot;input[type=&#x27;button&#x27;]&quot;/&gt;</pre>
         </div>
-        <nav  style="width:100%;">
-            <ul data-breakpoint="800" class="flexnav kss-ul">
-                <li class="kss-li">
-                    <a class="kss-a kss-homebutton" href="index.html">
-                        <span class="kss-title">Styleguide Home </span>
-                    </a>
-                </li>
-                    <li class="kss-li">
-                        <a class="kss-a" href="section-1.html">
-                            <span class="kss-ref">1</span> - <span class="kss-name">Buttons</span>
-                        </a>
-                        <ul class="kss-ul">
-                                    <li class="
-                                            kss-li
-                                            ">
-                                            <a class="kss-a" href="section-1.html#section-1.1">
-                                                <span class="kss-ref">1.1</span> - <span class="kss-name">Base styles &amp; states</span>
-                                            </a>
-                                    </li>
-                                    <li class="
-                                            kss-li
-                                            ">
-                                            <a class="kss-a" href="section-1.html#section-1.2">
-                                                <span class="kss-ref">1.2</span> - <span class="kss-name">Sizing</span>
-                                            </a>
-                                    </li>
-                                    <li class="
-                                            kss-li
-                                            ">
-                                            <a class="kss-a" href="section-1.html#section-1.3">
-                                                <span class="kss-ref">1.3</span> - <span class="kss-name">Skins</span>
-                                            </a>
-                                    </li>
-                        </ul>
-                    </li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="kss-wrapper">
-        <div class="kss-main">
-            <article>
-                        <a class="kss-a section-anchor" id="section-1"></a>
-                        <section class="kss-section container kss-depth-1" data-id="section-1" >
-                                <h1 class="kss-title">
-                                    <span class="kss-ref">1.0</span> - Buttons
-                                </h1>
-
-                                <div class="kss-box"><p>Button styles can be applied to anything with the <code>.btn</code> class applied.
-However, typically you&#39;ll want to apply these to only <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> elements for the best rendering.</p>
+      </section>
+  </article>
 </div>
 
 
+<!-- SCRIPTS -->
+<script src="public/kss.js"></script>
+<script src="public/prettify.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var sidebarAdjust = function() {
+      // Match footer/body height
+      var height = Math.max($(window).height(), $('#kss-main').height());
 
-                        </section>
-                        <a class="kss-a section-anchor" id="section-1.1"></a>
-                        <section class="kss-section container kss-depth-2" data-id="section-1.1" >
-                                <h1 class="kss-title">
-                                    <span class="kss-ref">1.1</span> - Base styles &amp; states
-                                </h1>
+      if ($(window).width() <= 768) {
+        $('#kss-main, #kss-nav').height('auto');
+      } else {
+        $('#kss-main, #kss-nav').height(height);
+      }
+    };
 
+    $(window).resize(sidebarAdjust);
+    $(window).scroll(sidebarAdjust);
+    sidebarAdjust();
 
-                                <table class="kss-mod-list">
-                                    <tr class="kss-mod-desc-group">
-                                        <td class="kss-mod-desc"><p class="kss-p">Default styling</p></td>
-                                        <td class="kss-mod-name"></td>
-                                    </tr>
-                                    <tr class="kss-mod-example">
-                                        <td colspan="2" class="screenshot" id="s1-1" ><button type="submit" class="btn btn-primary {$modifiers}">Button</button>
-<button type="submit" class="btn {$modifiers}">Button</button></td>
-                                    </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Hover state.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">:hover</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-1-pseudo-class-hover"><button type="submit" class="btn btn-primary pseudo-class-hover">Button</button>
-<button type="submit" class="btn pseudo-class-hover">Button</button></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Active state.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">:active</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-1-pseudo-class-active"><button type="submit" class="btn btn-primary pseudo-class-active">Button</button>
-<button type="submit" class="btn pseudo-class-active">Button</button></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Disabled button. If you use <code>&lt;button&gt;</code> element, that is acceptable to add <code>disabled</code> attribute instead.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.disabled</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-1-disabled"><button type="submit" class="btn btn-primary disabled">Button</button>
-<button type="submit" class="btn disabled">Button</button></td>
-                                        </tr>
-                                </table>
-                                <div class="kss-markup">
-                                    <pre class="kss-pre">&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary {$modifiers}&quot;&gt;Button&lt;/button&gt;
-&lt;button type=&quot;submit&quot; class=&quot;btn {$modifiers}&quot;&gt;Button&lt;/button&gt;</pre>
-                                </div>
-
-                        </section>
-                        <a class="kss-a section-anchor" id="section-1.2"></a>
-                        <section class="kss-section container kss-depth-2" data-id="section-1.2" >
-                                <h1 class="kss-title">
-                                    <span class="kss-ref">1.2</span> - Sizing
-                                </h1>
-
-                                <div class="kss-box"><p>Fancy larger or smaller buttons?
-Add <code>.btn-large</code>, <code>.btn-small</code>, or <code>.btn-mini</code> for additional sizes.</p>
-</div>
-
-                                <table class="kss-mod-list">
-                                    <tr class="kss-mod-desc-group">
-                                        <td class="kss-mod-desc"><p class="kss-p">Default styling</p></td>
-                                        <td class="kss-mod-name"></td>
-                                    </tr>
-                                    <tr class="kss-mod-example">
-                                        <td colspan="2" class="screenshot" id="s1-2" ><button type="submit" class="btn btn-primary {$modifiers}">Button</button>
-<button type="submit" class="btn {$modifiers}">Button</button></td>
-                                    </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Large button.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-large</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-2-btn-large"><button type="submit" class="btn btn-primary btn-large">Button</button>
-<button type="submit" class="btn btn-large">Button</button></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Small button.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-smalll</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-2-btn-smalll"><button type="submit" class="btn btn-primary btn-smalll">Button</button>
-<button type="submit" class="btn btn-smalll">Button</button></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Mini button.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-mini</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-2-btn-mini"><button type="submit" class="btn btn-primary btn-mini">Button</button>
-<button type="submit" class="btn btn-mini">Button</button></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Block level button.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-block</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-2-btn-block"><button type="submit" class="btn btn-primary btn-block">Button</button>
-<button type="submit" class="btn btn-block">Button</button></td>
-                                        </tr>
-                                </table>
-                                <div class="kss-markup">
-                                    <pre class="kss-pre">&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary {$modifiers}&quot;&gt;Button&lt;/button&gt;
-&lt;button type=&quot;submit&quot; class=&quot;btn {$modifiers}&quot;&gt;Button&lt;/button&gt;</pre>
-                                </div>
-
-                        </section>
-                        <a class="kss-a section-anchor" id="section-1.3"></a>
-                        <section class="kss-section container kss-depth-2" data-id="section-1.3" >
-                                <h1 class="kss-title">
-                                    <span class="kss-ref">1.3</span> - Skins
-                                </h1>
-
-                                <div class="kss-box"><p>Use the <code>.btn</code> class on an <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, or <code>&lt;input&gt;</code> element.</p>
-</div>
-
-                                <table class="kss-mod-list">
-                                    <tr class="kss-mod-desc-group">
-                                        <td class="kss-mod-desc"><p class="kss-p">Default styling</p></td>
-                                        <td class="kss-mod-name"></td>
-                                    </tr>
-                                    <tr class="kss-mod-example">
-                                        <td colspan="2" class="screenshot" id="s1-3" ><a href="#" class="btn {$modifiers}">Link</a>
-<button type="submit" class="btn {$modifiers}">Button</button>
-<input type="submit" class="btn {$modifiers}" value="Input:submit" />
-<input type="button" class="btn {$modifiers}" value="Input:button" /></td>
-                                    </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Provides extra visual weight and identifies the primary action in a set of buttons.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-primary</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-primary"><a href="#" class="btn btn-primary">Link</a>
-<button type="submit" class="btn btn-primary">Button</button>
-<input type="submit" class="btn btn-primary" value="Input:submit" />
-<input type="button" class="btn btn-primary" value="Input:button" /></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Used as an alternative to the default styles.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-info</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-info"><a href="#" class="btn btn-info">Link</a>
-<button type="submit" class="btn btn-info">Button</button>
-<input type="submit" class="btn btn-info" value="Input:submit" />
-<input type="button" class="btn btn-info" value="Input:button" /></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Indicates a successful or positive action.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-success</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-success"><a href="#" class="btn btn-success">Link</a>
-<button type="submit" class="btn btn-success">Button</button>
-<input type="submit" class="btn btn-success" value="Input:submit" />
-<input type="button" class="btn btn-success" value="Input:button" /></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Indicates caution should be taken with this action.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-warning</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-warning"><a href="#" class="btn btn-warning">Link</a>
-<button type="submit" class="btn btn-warning">Button</button>
-<input type="submit" class="btn btn-warning" value="Input:submit" />
-<input type="button" class="btn btn-warning" value="Input:button" /></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Indicates a dangerous or potentially negative action.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-danger</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-danger"><a href="#" class="btn btn-danger">Link</a>
-<button type="submit" class="btn btn-danger">Button</button>
-<input type="submit" class="btn btn-danger" value="Input:submit" />
-<input type="button" class="btn btn-danger" value="Input:button" /></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Alternate dark gray button, not tied to a semantic action or use.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-inverse</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-inverse"><a href="#" class="btn btn-inverse">Link</a>
-<button type="submit" class="btn btn-inverse">Button</button>
-<input type="submit" class="btn btn-inverse" value="Input:submit" />
-<input type="button" class="btn btn-inverse" value="Input:button" /></td>
-                                        </tr>
-                                        <tr class="kss-mod-desc-group" >
-                                            <td class="kss-mod-desc"><p>Deemphasize a button by making it look like a link while maintaining button behavior.</p>
-</td>
-                                            <td class="kss-mod-name"><div class="kss-mode-name-box">.btn-link</div></td>
-                                        </tr>
-                                        <tr class="kss-mod-example">
-                                            <td colspan="2" class="screenshot" id="s1-3-btn-link"><a href="#" class="btn btn-link">Link</a>
-<button type="submit" class="btn btn-link">Button</button>
-<input type="submit" class="btn btn-link" value="Input:submit" />
-<input type="button" class="btn btn-link" value="Input:button" /></td>
-                                        </tr>
-                                </table>
-                                <div class="kss-markup">
-                                    <pre class="kss-pre">&lt;a href=&quot;#&quot; class=&quot;btn {$modifiers}&quot;&gt;Link&lt;/a&gt;
-&lt;button type=&quot;submit&quot; class=&quot;btn {$modifiers}&quot;&gt;Button&lt;/button&gt;
-&lt;input type=&quot;submit&quot; class=&quot;btn {$modifiers}&quot; value=&quot;Input:submit&quot; /&gt;
-&lt;input type=&quot;button&quot; class=&quot;btn {$modifiers}&quot; value=&quot;Input:button&quot; /&gt;</pre>
-                                </div>
-
-                        </section>
-            </article> <!-- // #kss-content -->
-        </div> <!-- // #kss-main -->
-    </div> <!-- // #kss-wrapper -->
+    // Ensure code blocks are highlighted properly...
+    $('pre>code').addClass('prettyprint');
+    prettyPrint();
+  });
+</script>
 
 
-
-    <footer>
-
-    </footer>
-</div>
-
-
-
-
-
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="public/flexnav.min.js"></script>
-    <script>
-        $(".flexnav").flexNav();
-    </script>
-
-
-</body>
+</div></body>
 </html>

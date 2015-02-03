@@ -174,7 +174,7 @@ var parsePages = function(results) {
     }));
 };
 
-//http://localhost:1419/nsdesign/styleguide/docs/css/section-1.html --> 1
+
 function getSectionFromUrl(url){
     var r = new RegExp("section-\\d");
     var matches = url.match(r);
