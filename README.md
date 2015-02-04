@@ -148,8 +148,25 @@ grunt verify:compare
 In the report, check that the new buttons have the intended result. Now the report does not show any selectors.
 The forms and buttons are correct.
 
+## How to apply the PhantomCss verification process to your styleguide
+
+You need to make some adaptions in the kss living styleguide for the PhantomCss comparison and reporting.
+For this example, we assume the kss living styleguide is located in the kss-lib folder.
+
+* Add to the kss-lib/template the helpers directory and the handlebar_helpers.js. The helper registers 'markupId'
+identifier. The helpers sets the markUpId to a valide css selector which starts with "s",the section and the class name
+(for instance 1.1 will be s1_1). The syncscraper.js in test/scraper will use the markUpId to scrape the selectors and
+ store them in selectors-sync.json. The json file is read by the CarpserJs/PhantomCss script comparison.js
+ in test/styleguide.
+
+* Add to the kss-lib/index.html the class screenshot and id="{{markupId}}"
+
+```shell
+   <tr class="kss-mod-example screenshot" id="{{markupId}}">
+      <td colspan="2">{{modifierMarkup}}</td>
+   </tr>
+```
 ##Todo
-### How to apply the PhantomCss compare to your styleguide
 ### improve styling report
 ### jasmine
 
