@@ -84,6 +84,13 @@ module.exports = function(grunt) {
                     limit:1,
                     logConcurrentOutput: true
                 }
+            },
+            report: {
+                tasks: ['report', 'connect:compare'],
+                options: {
+                    limit: 1,
+                    logConcurrentOutput: true
+                }
             }
         },
         watch: {
@@ -144,6 +151,7 @@ module.exports = function(grunt) {
     grunt.registerTask('verify:clean',['clean:init']);
     grunt.registerTask('verify:init',['concurrent:compare_init']);
     grunt.registerTask('verify:compare',['concurrent:compare']);
+    grunt.registerTask('verify:report',['concurrent:report']);
 
 }
 

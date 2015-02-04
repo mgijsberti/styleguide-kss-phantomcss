@@ -8,6 +8,7 @@ validate any unexpected side-effects of changes (regression) in your css classes
 See for more info about KSS Living Styleguide and PhantomCss:
 
 ### KSS Living Styleguides
+* http://styleguides.io/
 * http://warpspire.com/kss/styleguides/
 * http://web-design-weekly.com/2013/02/01/getting-started-with-kss-node/
 * https://github.com/kss-node/kss-node

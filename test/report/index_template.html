@@ -3,7 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <title>Report Failures</title>
+    <title>Report Differences</title>
+
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -11,6 +12,7 @@
 
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
 
   <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
 
@@ -32,16 +34,16 @@
        "background-color" :  "LightGreen",
         "border" : "1px solid black",
         "margin" : "5px",
-        "width" : "300px",
-        "height" : "25px"
+        "width" : "400px",
+        "height" : "45px"
      }
 
      var errorMessageStyle = {
        "background-color" :  "IndianRed",
        "border" : "1px solid black",
        "margin" : "5px",
-       "width" : "300px",
-       "height" : "25px"
+       "width" : "400px",
+       "height" : "45px"
      }
 
      function setMessage(message){
@@ -72,10 +74,11 @@
 
 </head>
 <body role="document" >
-<div class="page-header" >
-<h1>Failures</h1>
+<div class="jumbotron">
+    <h2>Report with differences</h2>
+    <p>This reports lists all the selectors of the styleguide which show a difference with respect to the baseline. If the reported difference is intended, you can rebase the selector (press the button 'OK' in column 'rebase').The rebased selectors are not listed when you execute again :  <pre><code>grunt verify:compare.</code></pre></p>
 </div>
-<div class="message"></div>
+<div class="alert alert-success message"></div>
 <div class="row">
   <div class="col-md-6">
     <table class="table table-bordered">
@@ -83,9 +86,9 @@
       <tr>
         <th>Section</th>
         <th>Selector</th>
-        <th>Origineel</th>
-        <th>Nieuw</th>
-        <th>Verschil</th>
+        <th>Original</th>
+        <th>New</th>
+        <th>Difference</th>
         <th>Rebase</th>
       </tr>
       </thead>
@@ -97,7 +100,7 @@
         <td><img src="{{original}}"/></td>
         <td><img src="{{diff}}"/></td>
         <td class="image" ><img src="{{path}}"/></td>
-        <td><button id="{{id}}" onclick="rebase('{{section}}','{{selector}}','{{id}}');">OK</button></td>
+        <td><button class="btn-success" id="{{id}}" onclick="rebase('{{section}}','{{selector}}','{{id}}');">OK</button></td>
       </tr>
       {{/files}}
       </tbody>
