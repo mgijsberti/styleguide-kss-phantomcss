@@ -145,18 +145,11 @@ Wait for the styleguide to reload. and compare again.
 grunt verify:compare
 ```
 
-In the report, check that the new buttons have the intended result. If ok, rebase the buttons
-as well. Run again:
-
-```shell
-grunt verify:compare
-```
-
-Now the report does not show any selectors. The forms and buttons are correct.
+In the report, check that the new buttons have the intended result. Now the report does not show any selectors.
+The forms and buttons are correct.
 
 ##Todo
-
-### Fix last step in report (failures are not removed on the second rebase).
+### How to apply the PhantomCss compare to your styleguide
 ### improve styling report
 ### jasmine
 

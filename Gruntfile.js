@@ -79,7 +79,7 @@ module.exports = function(grunt) {
             },
             //Report shows the results of the changes
             compare:{
-                tasks: ['scraper','casper','report','connect:compare'],
+                tasks: ['clean:rebase','scraper','casper','report','connect:compare'],
                 options: {
                     limit:1,
                     logConcurrentOutput: true
