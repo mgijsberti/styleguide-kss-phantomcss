@@ -97,7 +97,7 @@ If you run again grunt verify:compare, the 'rebased' css selector is removed fro
 
 ## Tutorial
 
-**Start***
+**Start**
 *Revert all the changes in the less files in the demo folder. The living Styleguide is live on localhost:1419.*
 
 This tutorial explains how the PhantomCss comparison tool works together with the Living Styleguide.
