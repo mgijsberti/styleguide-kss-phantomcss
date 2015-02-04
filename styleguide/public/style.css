@@ -5,7 +5,7 @@
   padding: 10px 40px;
   color: #fff;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: bold;
   text-transform: lowercase;
   text-decoration: none;
@@ -63,7 +63,7 @@ input[type='text'] {
   -moz-appearance: none;
   appearance: none;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.5em;
   padding: 8px;
   border: 1px solid #aaa;
@@ -131,7 +131,7 @@ input[type='text']:disabled {
   padding: 10px 40px;
   color: #fff;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: bold;
   text-transform: lowercase;
   text-decoration: none;
@@ -188,7 +188,7 @@ input[type='text'] {
   -moz-appearance: none;
   appearance: none;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.5em;
   padding: 8px;
   border: 1px solid #aaa;
