@@ -10,14 +10,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
-    var rebase = require('./rebase.js');
+    var rebase = require('./test/rebase.js');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadTasks('test');
-    var phPath = 'test/';
     var scraper = 'scraper/syncscraper.js';
-    var scraperPath = phPath + scraper;
     var casper = 'styleguide/comparison.js --path=test';
-    var casperPath = phPath + casper;
     var report = 'report/genindex.js'
 
     grunt.initConfig({
