@@ -152,7 +152,7 @@ grunt verify:compare
 Now the report does not show any selectors. The buttons have the same font-size of 14px again, and PhantomCss reports
 no differences with the baseline. So, the forms and buttons are correct, and the report does not report any differences.
 
-## How to apply the PhantomCss verification process to your styleguide
+## How to apply to your own styleguide
 
 You need to make some adaptions in the kss living styleguide for the PhantomCss comparison and reporting.
 For this example, we assume the kss living styleguide is located in the kss-lib folder.
