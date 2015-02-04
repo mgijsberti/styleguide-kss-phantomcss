@@ -149,9 +149,8 @@ Wait for the styleguide to reload. and compare again.
 ```shell
 grunt verify:compare
 ```
-
-In the report, check that the new buttons have the intended result. Now the report does not show any selectors.
-The forms and buttons are correct.
+Now the report does not show any selectors. The buttons have the same font-size of 14px again, and PhantomCss reports
+no differences with the baseline. So, the forms and buttons are correct, and the report does not report any differences.
 
 ## How to apply the PhantomCss verification process to your styleguide
 
