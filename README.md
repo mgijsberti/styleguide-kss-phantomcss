@@ -91,6 +91,8 @@ This command will reinitialize the validation. All the screenshots are removed.
 In the report you can select a selector and rebase the selector.If you press the button 'OK' in the column 'rebase'
 for a css selector in the styleguide.
 
+![alt tag](https://raw.githubusercontent.com/mgijsberti/styleguide-kss-phantomcss/master/readme_assets/rebase.png)
+
 I you rebase a css selector, it means that the reported differences are intented for this css selector.
 If you run again grunt verify:compare, the 'rebased' css selector is removed from the report.
 
