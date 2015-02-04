@@ -89,7 +89,7 @@ This command will reinitialize the validation. All the screenshots are removed.
 ## Rebase
 
 In the report you can select a selector and rebase the selector.If you press the button 'OK' in the column 'rebase'
-for a css selector in thecstyleguide.
+for a css selector in the styleguide.
 
 I you rebase a css selector, it means that the reported differences are intented for this css selector.
 If you run again grunt verify:compare, the 'rebased' css selector is removed from the report.
@@ -97,8 +97,8 @@ If you run again grunt verify:compare, the 'rebased' css selector is removed fro
 
 ## Tutorial
 
-** Start ***
-* Revert all the changes in the less files in the demo folder. The living Styleguide is live on localhost:1419. *
+**Start***
+*Revert all the changes in the less files in the demo folder. The living Styleguide is live on localhost:1419.*
 
 This tutorial explains how the PhantomCss comparison tool works together with the Living Styleguide.
 
