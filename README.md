@@ -77,6 +77,8 @@ screenshots for each css element in the markup of the less files, and compare th
 A report will show the originals, the new (after the applied change), and the differences between orginals
 and new.
 
+![alt tag](https://raw.githubusercontent.com/mgijsberti/styleguide-kss-phantomcss/master/readme_assets/report.png)
+
 ## Reinitialize
 
 ```shell
