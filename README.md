@@ -169,9 +169,9 @@ identifier. The helpers sets the markUpId to a valide css selector which starts 
       <td colspan="2">{{modifierMarkup}}</td>
    </tr>
 ```
-##Todo
-### improve styling report
-### jasmine
+
+
+
 
 
 
