@@ -1,13 +1,12 @@
-# Living Styleguide Example with automatic PhantomCss comparison of screenshots
-
+# KSS Living Styleguide and PhantomCss
 
 This project uses the kss-node implementation of KSS Living Styleguides in combination with PhantomCss.
-The PhantomCss validation scripts are generated from the Living Styleguide. With this setup you can automatically
-validate any unexpected side-effects of changes (regression) in your css classes.
+The PhantomCss validation scripts are generated from the Living Styleguide. With this tool you can verify
+unexpected side-effects of changes (regression) in the css of your project. All differences are listed in a report.
 
 See for more info about KSS Living Styleguide and PhantomCss:
 
-### KSS Living Styleguides
+### Living or Live Styleguides
 * http://styleguides.io/
 * http://warpspire.com/kss/styleguides/
 * http://web-design-weekly.com/2013/02/01/getting-started-with-kss-node/
@@ -20,37 +19,38 @@ See for more info about KSS Living Styleguide and PhantomCss:
 
 ## Installation
 
-In the root folder, folders test/scraper and test/report
+In the root folder, folders test/scraper and test/report execute
 
 ```shell
 npm install
 ```
 
-In test/styleguide
+In test/styleguide execute
 
 ```shell
  npm install
  bower install phantomcss
  bower install resemblejs
 ```
-## Start living styleguide
+## Start the example KSS Living Styleguide
 
 ```shell
 grunt styleguide
 ```
 
 Starts the style guide on http://localhost:1419. The source files and index.html of the living style guide are watched.
-The style guide shows the button with different styles. If you change the less files in app/src or the index.html in
-kss/template, the style guide is reloaded.
+The style guide shows the button with different styles. If you change the less files in demo folder the style guide is
+reloaded automatically.
 
-Open a new terminal for the comparison of the changes in css. PhantomCss makes screenshots for each css element of
-the style guide, based on the markup of the less files.
 
 
 ## Test the living style guide
 
-The first step is to make a baseline. PhantomCss will generate screenshots in the test/report/screenshots folder. These
-screenshots will serve as a baseline.
+Open a second terminal for the comparison of the changes in css. PhantomCss will procuce screenshots for each css
+selector of the style guide, based on the markup in the less files.
+
+The first step is to make a baseline. PhantomCss will generate the screenshots in the test/report/screenshots folder.
+These screenshots will serve as the baseline.
 
 ## Setup baseline
 
@@ -58,21 +58,21 @@ screenshots will serve as a baseline.
 grunt verify:init
 ```
 
-## Apply a change in the buttons.less and check the results:
+## Apply a change
 
-Change in the app/src/buttons.less the padding attribute of the .btn class:
+Change in the demo/variables.less font
 
-  padding: 4px 22px; into padding: 4px 52px;
+   @font-size: 14px; to @font-size: 17px;
 
-Wait for reloading of the Living Styleguide.
+Wait for reloading of the living styleguide.
 
-Now run
+Now execute
 
 ```shell
 grunt verify:compare
 ```
 
-The 'failures' report with differences will automatically load at http://localhost:1421/. PhantomCss will make new
+The 'differences' report will automatically load at http://localhost:1421/. PhantomCss will make new
 screenshots for each css element in the markup of the less files, and compare them with the originals.
 A report will show the originals, the new (after the applied change), and the differences between orginals
 and new.
@@ -88,18 +88,20 @@ This command will reinitialize the validation. All the screenshots are removed.
 
 ## Rebase
 
-In the report you can select a selector and rebase the selector. This means that the reported changes
-are correct for the css selector. If you press the button 'rebase' for a particular css selector, the
-new screenshots are copied onto the originals. If you run again grunt verify:compare, the 'rebased' css selector
-is removed from the report.
+In the report you can select a selector and rebase the selector.If you press the button 'OK' in the column 'rebase'
+for a css selector in thecstyleguide.
 
+I you rebase a css selector, it means that the reported differences are intented for this css selector.
+If you run again grunt verify:compare, the 'rebased' css selector is removed from the report.
 
 
 ## Tutorial
 
-This tutorial explains how the PhantomCss diff tool works together with the Living Styleguide.
+** Start ***
+* Revert all the changes in the less files in the demo folder. The living Styleguide is live on localhost:1419. *
 
-The living Styleguide is live on localhost:1419. Revert any change in the less files in the demo folder.
+This tutorial explains how the PhantomCss comparison tool works together with the Living Styleguide.
+
 
 * Reinitialize
 
