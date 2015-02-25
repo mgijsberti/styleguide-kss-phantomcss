@@ -7,6 +7,7 @@
   "dependencies" : {
     "mustache"    : "latest",
     "events"    : "latest",
-     "karma"  : "latest"
+     "karma"  : "latest",
+     "q"       : "latest"
   }
 }

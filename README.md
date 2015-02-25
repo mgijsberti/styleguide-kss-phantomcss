@@ -131,7 +131,8 @@ but the forms are as intended.
 * Rebase the forms of section 2 because the font-size change had the intended result. Leave
 the buttons in the report.
 
-* Compare again
+* Stop in the second terminal the process (ctrl+C) and do another compare. The styleguide (in the first terminal) is
+still live.
 
 ```shell
 grunt verify:compare
@@ -146,7 +147,7 @@ Add two variables for the font-size of the buttons and the forms in variables.le
   @font-size-forms: 17px;
 ```
 Use variable font-size-buttons in buttons.less and font-size-forms in base.less.
-Wait for the styleguide to reload. and compare again.
+Wait for the styleguide to reload. And compare again.
 
 ```shell
 grunt verify:compare

@@ -137,7 +137,7 @@ var getImagePath = function(data){
 
 
 module.exports = function rebase(req, res, next){
-    if (req.url.match('/test/rebase')) {
+    if (req.url.match('/test/report/rebase')) {
         console.log('Rebase test is called [ ' + req.url + ' ]');
         getData(req.url)
             .then(getImagePath)

@@ -57,7 +57,7 @@
      }
 
      function rebase(section, selector, id) {
-       $.get('/test/rebase?section=' + section + "&selector=" + selector,
+       $.get('/test/report/rebase?section=' + section + "&selector=" + selector,
            function(data) {
                 console.log('Status : ' + data );
                 if(data.match('success')){

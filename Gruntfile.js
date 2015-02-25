@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
-    var rebase = require('./test/rebase.js');
+    var rebase = require('./test/report/rebase.js');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadTasks('test');
     var scraper = 'scraper/syncscraper.js';
