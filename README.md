@@ -29,7 +29,7 @@ In test/styleguide execute
 
 ```shell
  npm install
- bower install phantomcss
+ bower install phantomcss   (select version 0.9.2)
  bower install resemblejs
 ```
 ## Start the example KSS Living Styleguide
